@@ -7,6 +7,12 @@ async function sendAlertEmail(toEmail, subject, message) {
       user: process.env.EMAIL_USER,
       pass: process.env.EMAIL_APP_PASSWORD,
     },
+
+    // Force IPv4 to avoid ENETUNREACH on hosts without IPv6 outbound support (e.g. Render free tier)
+  host: 'smtp.gmail.com',
+  port: 465,
+  secure: true,
+  family: 4,
   });
 
   return transporter.sendMail({
