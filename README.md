@@ -290,6 +290,15 @@ I used a mix of AI tools for different parts of this project, split roughly betw
 - Rotate any app password that was accidentally exposed locally or in commits.
 - This challenge app intentionally has no authentication, so all users share one ledger and one notification email.
 
+### Email Delivery: Local vs Production
+
+This project uses two email delivery methods depending on environment:
+
+- **Local development**: Nodemailer over SMTP (Gmail + App Password). Works reliably on localhost and can send to any recipient.
+- **Production (Render)**: Resend's HTTP API. Render's free tier blocks outbound SMTP ports (25/465/587), so Nodemailer fails in production with `ENETUNREACH` or connection timeout errors. Since Resend sends over HTTPS, it isn't affected by this restriction.
+
+**Known limitation**: Resend's sandbox sender (`onboarding@resend.dev`) can only deliver to the account owner's own email address without a verified custom domain. This is a platform restriction, not an application bug — the underlying alert pipeline (event detection → message formatting → send) is fully functional and demonstrated in the attached demo video using the account owner's inbox as the recipient. In a real production deployment, this would be resolved by verifying a custom sending domain with Resend.
+
 ## Future Improvements
 
 - Add pagination for large transaction lists.
