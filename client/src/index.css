@@ -1,0 +1,98 @@
+body {
+  background-color: #f4f7fb;
+  min-height: 100vh;
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-main {
+  flex: 1;
+}
+
+.app-navbar {
+  background: linear-gradient(135deg, #0d6efd, #084298);
+}
+
+.app-navbar .navbar-brand {
+  color: #fff;
+}
+
+.app-navbar__logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.15);
+  font-weight: 700;
+}
+
+.app-navbar__eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+.summary-card {
+  border-left: 4px solid transparent;
+}
+
+.summary-card--income {
+  border-left-color: #198754;
+}
+
+.summary-card--expense {
+  border-left-color: #dc3545;
+}
+
+.summary-card--balance {
+  border-left-color: #0d6efd;
+}
+
+.summary-card__amount {
+  font-size: 1.5rem;
+}
+
+.app-footer {
+  border-top: 1px solid #dee2e6;
+  background-color: #fff;
+}
+
+.table th {
+  white-space: nowrap;
+}
+
+.transaction-filters .form-label {
+  font-weight: 500;
+}
+
+.delete-preview {
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+}
+
+.spending-risk-meter__bar {
+  height: 0.5rem;
+}
+
+.spending-risk-meter__metric {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.75rem;
+  border: 1px solid #dee2e6;
+  border-radius: 0.5rem;
+  background-color: #f8f9fa;
+}
+
+@media (max-width: 768px) {
+  .summary-card__amount {
+    font-size: 1.25rem;
+  }
+}
